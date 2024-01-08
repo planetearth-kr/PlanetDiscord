@@ -1,0 +1,9 @@
+token: "BOT-TOKEN"
+
+bot-status: "ONLINE"
+
+activity: "PlanetEarth"
+
+command-channel-id: "CHANNEL-ID"
+
+premium-role-id: "CHANNEL-ID"

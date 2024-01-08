@@ -1,0 +1,8 @@
+name: PlanetDiscordCommands
+version: '${project.version}'
+main: kr.planetearth.planetdiscordcommands.Main
+api-version: 1.19
+softdepend: [Towny]
+description: PlanetEarth Discord Command Plugin
+authors: [ Gl0W1E, Irochi ]
+folia-supported: true
