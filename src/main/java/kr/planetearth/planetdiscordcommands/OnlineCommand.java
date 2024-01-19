@@ -1,17 +1,19 @@
 package kr.planetearth.planetdiscordcommands;
 
 import com.palmergames.bukkit.towny.TownyAPI;
-import com.palmergames.bukkit.towny.TownyEconomyHandler;
 import com.palmergames.bukkit.towny.object.Nation;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
-import java.awt.*;
+import org.bukkit.entity.Player;
 
-public class NationCommand extends ListenerAdapter {
+import java.awt.Color;
+import java.util.List;
+
+public class OnlineCommand extends ListenerAdapter {
     @Override
     public void onSlashCommandInteraction(SlashCommandInteractionEvent event) {
-        if (!event.getName().equals("nation")) {
+        if (!event.getName().equals("online")) {
             return;
         }
 
@@ -32,6 +34,8 @@ public class NationCommand extends ListenerAdapter {
         }
 
         Nation n = TownyAPI.getInstance().getNation(event.getInteraction().getOption("name").getAsString());
+        List<Player> onlineplayers = TownyAPI.getInstance().getOnlinePlayersInNation(n);
+        List<Player> onlineallyplayers = TownyAPI.getInstance().getOnlinePlayersAlliance(n);
         if (n == null) {
             EmbedBuilder embFailNat = new EmbedBuilder();
             embFailNat.setDescription("존재하지 않는 국가입니다!");
@@ -43,13 +47,8 @@ public class NationCommand extends ListenerAdapter {
         EmbedBuilder emb = new EmbedBuilder();
         emb.setColor(Color.GREEN);
         emb.setTitle(n.getName());
-        emb.setDescription("**공지:** " + n.getBoard());
-        emb.addField("국가장:", n.getKing().getName(), true);
-        emb.addField("수도:", n.getCapital().getName(), true);
-        emb.addField("마을 수:", String.valueOf(n.getNumTowns()), true);
-        if (TownyEconomyHandler.isActive()) {
-            emb.addField("국고:", String.valueOf(Math.round(n.getAccount().getHoldingBalance()*10)/10.0), true);
-        }
+        emb.setDescription("**접속중인 국가원 수:** " + onlineplayers.size());
+        emb.addField("접속중인 동맹원 수:", String.valueOf(onlineallyplayers.size()), true);
         event.replyEmbeds(emb.build()).queue();
     }
 }

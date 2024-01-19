@@ -48,6 +48,7 @@ public class ResidentCommand extends ListenerAdapter {
         emb.setThumbnail("https://mc-heads.net/avatar/" + r.getName() + "/600.png");
         emb.setColor(Color.GREEN);
         emb.addField("최초 접속일:", "<t:" + r.getRegistered()/1000 + ":f>", true);
+        emb.addField("최근 접속일:", "<t:" + r.getLastOnline()/1000 + ":f>", true);
         if (r.hasTown()) {
             emb.addField("마을:" , r.getTownOrNull().getName(), true);
         }
@@ -55,7 +56,7 @@ public class ResidentCommand extends ListenerAdapter {
             emb.addField("국가: " , r.getNationOrNull().getName(), true);
         }
         if (TownyEconomyHandler.isActive()) {
-            emb.addField("돈:", String.valueOf(r.getAccount().getHoldingBalance()), true);
+            emb.addField("돈:", String.valueOf(Math.round(r.getAccount().getHoldingBalance()*10)/10.0), true);
         }
 
         event.replyEmbeds(emb.build()).queue();

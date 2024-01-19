@@ -22,6 +22,8 @@ public class RegisterCommands extends ListenerAdapter {
         commandData.add(Commands.slash("resident", "플레이어 정보를 봅니다!").addOptions(optionResident));
         OptionData optionNation = new OptionData(OptionType.STRING, "name", "국가 이름을 입력해주세요!", true );
         commandData.add(Commands.slash("nation", "국가 정보를 봅니다!").addOptions(optionNation));
+        OptionData optionOnline = new OptionData(OptionType.STRING, "name", "국가 이름을 입력해주세요!", true );
+        commandData.add(Commands.slash("online", "국가 접속자수를 봅니다!").addOptions(optionOnline));
         return commandData;
     }
     @Override

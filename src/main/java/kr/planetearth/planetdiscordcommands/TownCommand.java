@@ -52,7 +52,7 @@ public class TownCommand extends ListenerAdapter {
             emb.addField("국가:", t.getNationOrNull().getName(), true);
         }
         if (TownyEconomyHandler.isActive()) {
-            emb.addField("금고:", String.valueOf(t.getAccount().getHoldingBalance()), true);
+            emb.addField("금고:", String.valueOf(Math.round(t.getAccount().getHoldingBalance()*10)/10.0), true);
         }
         emb.addField("PVP:", t.isPVP() ? "켜짐" : "꺼짐", true);
         emb.addField("불 번짐:", t.isFire() ? "켜짐" : "꺼짐", true);

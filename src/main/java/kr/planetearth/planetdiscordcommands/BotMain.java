@@ -38,6 +38,7 @@ public class BotMain {
         shardM.addEventListener(new TownCommand());
         shardM.addEventListener(new ResidentCommand());
         shardM.addEventListener(new NationCommand());
+        shardM.addEventListener(new OnlineCommand());
     }
 
     public ShardManager getShardM() {
