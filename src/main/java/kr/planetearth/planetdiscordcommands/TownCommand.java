@@ -35,7 +35,6 @@ public class TownCommand extends ListenerAdapter {
         Town t = TownyAPI.getInstance().getTown(event.getInteraction().getOption("name").getAsString());
 
         if (t == null) {
-
             EmbedBuilder embFailTown = new EmbedBuilder();
             embFailTown.setDescription("존재하지 않는 마을입니다!");
             embFailTown.setColor(Color.RED);
