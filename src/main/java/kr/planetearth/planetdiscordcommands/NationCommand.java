@@ -50,6 +50,7 @@ public class NationCommand extends ListenerAdapter {
         if (TownyEconomyHandler.isActive()) {
             emb.addField("국고:", String.valueOf(Math.round(n.getAccount().getHoldingBalance()*10)/10.0), true);
         }
+        emb.addField("주민 수:" , String.valueOf(n.getNumResidents()), true);
         event.replyEmbeds(emb.build()).queue();
     }
 }

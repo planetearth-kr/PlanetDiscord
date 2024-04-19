@@ -57,8 +57,7 @@ public class TownCommand extends ListenerAdapter {
         emb.addField("불 번짐:", t.isFire() ? "켜짐" : "꺼짐", true);
         emb.addField("폭발:", t.isExplosion() ? "켜짐" : "꺼짐", true);
         emb.addField("주민 수:" , String.valueOf(t.getNumResidents()), true);
-
+        emb.addField("클레임 크기:" , String.valueOf(t.getNumTownBlocks()), true);
         event.replyEmbeds(emb.build()).queue();
-
     }
 }
