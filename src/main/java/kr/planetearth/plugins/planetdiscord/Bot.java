@@ -1,4 +1,4 @@
-package kr.planetearth.planetdiscordcommands;
+package kr.planetearth.plugins.planetearthdiscod.planetdiscord;
 
 import net.dv8tion.jda.api.OnlineStatus;
 import net.dv8tion.jda.api.entities.Activity;
@@ -8,13 +8,13 @@ import net.dv8tion.jda.api.sharding.ShardManager;
 import javax.security.auth.login.LoginException;
 import java.util.Objects;
 
-public class BotMain {
+public class Bot {
       public ShardManager shardM;
 
-    public BotMain() throws LoginException {
-        String tkn = Main.instance.getConfig().getString("token");
+    public Bot() throws LoginException {
+        String tkn = PlanetDiscord.instance.getConfig().getString("token");
         DefaultShardManagerBuilder builder = DefaultShardManagerBuilder.createDefault(tkn);
-        switch (Main.instance.getConfig().getString("bot-status")) {
+        switch (PlanetDiscord.instance.getConfig().getString("bot-status")) {
             case "ONLINE":
               builder.setStatus(OnlineStatus.ONLINE);
               break;
@@ -28,10 +28,10 @@ public class BotMain {
                 builder.setStatus(OnlineStatus.INVISIBLE);
                 break;
         }
-        if (Objects.requireNonNull(Main.instance.getConfig().getString("activity")).length() > 15) {
+        if (Objects.requireNonNull(PlanetDiscord.instance.getConfig().getString("activity")).length() > 15) {
             builder.setActivity(Activity.playing("Huyu"));
         } else {
-            builder.setActivity(Activity.playing(Main.instance.getConfig().getString("activity")));
+            builder.setActivity(Activity.playing(PlanetDiscord.instance.getConfig().getString("activity")));
         }
         shardM = builder.build();
         shardM.addEventListener(new RegisterCommands());
@@ -47,7 +47,7 @@ public class BotMain {
 
     public static void main() {
         try {
-            BotMain bot = new BotMain();
+            Bot bot = new Bot();
         } catch (LoginException e) {
             System.out.println("INVALID BOT TOKEN");
         }

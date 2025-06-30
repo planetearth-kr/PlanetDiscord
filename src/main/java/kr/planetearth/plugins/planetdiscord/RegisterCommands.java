@@ -1,4 +1,4 @@
-package kr.planetearth.planetdiscordcommands;
+package kr.planetearth.plugins.planetearthdiscod.planetdiscord;
 
 import net.dv8tion.jda.api.events.guild.GuildJoinEvent;
 import net.dv8tion.jda.api.events.guild.GuildReadyEvent;

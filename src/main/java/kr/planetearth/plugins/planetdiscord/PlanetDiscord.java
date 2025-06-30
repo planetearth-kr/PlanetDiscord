@@ -1,12 +1,12 @@
-package kr.planetearth.planetdiscordcommands;
+package kr.planetearth.plugins.planetearthdiscod.planetdiscord;
 
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 import java.util.logging.Logger;
 
-public final class Main extends JavaPlugin {
+public final class PlanetDiscord extends JavaPlugin {
 
-    public static Main instance;
+    public static PlanetDiscord instance;
 
     private static Logger log = Bukkit.getLogger();
 
@@ -14,14 +14,14 @@ public final class Main extends JavaPlugin {
     public void onEnable() {
         instance = this;
         loadConfiguration();
-        BotMain.main();
+        Bot.main();
 
-		log.info("§9PlanetDiscordCommands §ehas §aenabled§e.");
+		log.info("§9PlanetDiscord §ehas §aenabled§e.");
     }
 
     @Override
     public void onDisable() {
-		log.info("§9PlanetDiscordCommands §ehas §cdisabled§e.");
+		log.info("§9PlanetDiscord §ehas §cdisabled§e.");
     }
 
     public void loadConfiguration(){

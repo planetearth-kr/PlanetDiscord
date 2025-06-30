@@ -1,4 +1,4 @@
-package kr.planetearth.planetdiscordcommands;
+package kr.planetearth.plugins.planetearthdiscod.planetdiscord;
 
 import com.palmergames.bukkit.towny.TownyAPI;
 import com.palmergames.bukkit.towny.TownyEconomyHandler;
@@ -16,7 +16,7 @@ public class TownCommand extends ListenerAdapter {
             return;
         }
 
-        if (!event.getChannelId().equals(Main.instance.getConfig().getString("command-channel-id"))) {
+        if (!event.getChannelId().equals(PlanetDiscord.instance.getConfig().getString("command-channel-id"))) {
             EmbedBuilder embFailRes = new EmbedBuilder();
             embFailRes.setDescription("명령어 채널에서만 사용할 수 있습니다!");
             embFailRes.setColor(Color.RED);
@@ -24,7 +24,7 @@ public class TownCommand extends ListenerAdapter {
             return;
         }
 
-        if (!event.getMember().getRoles().stream().anyMatch(role -> role.getId().equals(Main.instance.getConfig().getString("premium-role-id")))) {
+        if (!event.getMember().getRoles().stream().anyMatch(role -> role.getId().equals(PlanetDiscord.instance.getConfig().getString("premium-role-id")))) {
             EmbedBuilder embFailRes = new EmbedBuilder();
             embFailRes.setDescription("후원자만 사용할 수 있습니다!");
             embFailRes.setColor(Color.RED);
