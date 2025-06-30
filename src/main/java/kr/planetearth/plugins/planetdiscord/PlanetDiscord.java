@@ -1,4 +1,4 @@
-package kr.planetearth.plugins.planetearthdiscod.planetdiscord;
+package kr.planetearth.plugins.planetdiscord.planetdiscord;
 
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;

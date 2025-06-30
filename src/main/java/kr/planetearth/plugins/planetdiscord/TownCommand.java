@@ -1,4 +1,4 @@
-package kr.planetearth.plugins.planetearthdiscod.planetdiscord;
+package kr.planetearth.plugins.planetdiscord.planetdiscord;
 
 import com.palmergames.bukkit.towny.TownyAPI;
 import com.palmergames.bukkit.towny.TownyEconomyHandler;

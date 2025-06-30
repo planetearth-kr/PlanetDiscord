@@ -1,4 +1,4 @@
-package kr.planetearth.plugins.planetearthdiscod.planetdiscord;
+package kr.planetearth.plugins.planetdiscord.planetdiscord;
 
 import net.dv8tion.jda.api.OnlineStatus;
 import net.dv8tion.jda.api.entities.Activity;
