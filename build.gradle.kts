@@ -8,22 +8,9 @@ version = "1.0"
 
 repositories {
     mavenCentral()
-    maven {
-        name = "jitpack"
-        url = uri("https://jitpack.io")
-    }
-    maven {
-        name = "sonatype"
-        url = uri("https://oss.sonatype.org/content/groups/public/")
-    }
-    maven {
-        name = "papermc"
-        url = uri("https://repo.papermc.io/repository/maven-public/")
-    }
-    maven {
-        name = "glaremasters repo"
-        url = uri("https://repo.glaremasters.me/repository/towny/")
-    }
+    maven("https://jitpack.io")
+    maven("https://repo.papermc.io/repository/maven-public/")
+    maven("https://repo.glaremasters.me/repository/towny/")
 }
 
 dependencies {
